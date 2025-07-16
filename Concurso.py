@@ -1,4 +1,7 @@
+#Classe Concurso, com todos seus atributos
 class Concurso:
+
+    #Construtor
     def __init__(self, orgao : str, edital : str, codigo : str, vagas : list):
         self.orgao = orgao
         self.edital = edital

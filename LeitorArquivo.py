@@ -24,6 +24,7 @@ def retornaLista(caminhoArquivo : str):
         return lista
     
     except ValueError:
+        #Recebe o erro de arquivo fora do formato válido
         print("O arquivo informado está fora de formato válido!")
         return None
 

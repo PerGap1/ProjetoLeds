@@ -4,6 +4,7 @@ import re
 def recebeEscolha():
     try:
         print()
+        #Recebe a escolha do usuário
         escolha = int(input("1-Perfil do candidato, 2-Perfil do concurso: "))
 
         if escolha != 1 and escolha != 2:
@@ -12,6 +13,7 @@ def recebeEscolha():
     except ValueError:
         escolha = 0
 
+    #Se a escolha tiver sido jogada para 0, a função main irá fechar automaticamente. Senão, ela procede com a escolha do usuário
     return escolha
 
 #Conserta cpf's informados sem a formatação
@@ -28,4 +30,5 @@ def formataCPF(cpf : str):
         except ValueError:          #Tenta transformar o cpf em inteiro para garantir que tenha apenas números
             cpf = ""
 
+    #Se o cpf tiver seu valor anulado, a função main irá pedir o cpf novamente. Senão, ela continua normalmente
     return cpf

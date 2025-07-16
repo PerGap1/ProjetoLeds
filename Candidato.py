@@ -1,6 +1,9 @@
 from datetime import date
 
+#Classe Candidato, com todos os seus atributos
 class Candidato:
+
+    #Construtor
     def __init__(self, nome : str, dataNascimento : date, cpf : str, profissoes : list):
         self.nome = nome
         self.dataNascimento = dataNascimento

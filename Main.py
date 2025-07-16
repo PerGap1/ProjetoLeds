@@ -1,18 +1,24 @@
+#Importações das outras partes do código
 import LeitorArquivo
 import ListasPerfil
 import FuncoesAux
 
+#Função principal
 def main():
     try:
-        listaCandidatos = LeitorArquivo.retornaLista("ProjetoLEDS\PseudoBD\candidatos.txt")
-        listaConcursos = LeitorArquivo.retornaLista("ProjetoLEDS\PseudoBD\concursos.txt")
+        #Recebe os dados dos arquivos de texto
+        listaCandidatos = LeitorArquivo.retornaLista(r"ProjetoLEDS\PseudoBD\candidatos.txt")
+        listaConcursos = LeitorArquivo.retornaLista(r"ProjetoLEDS\PseudoBD\concursos.txt")
 
+        #Garante que as listas são válidas
         if not listaCandidatos or not listaConcursos:
             raise Exception
 
+        #Recebe a entrada do usuário com erros evitados
         escolha = FuncoesAux.recebeEscolha()
 
         while escolha != 0:
+            #O usuário escolheu ver concursos que encaixam com o perfil do candidato
             if escolha == 1:
                 perfilCandidato = []
                 cpf = FuncoesAux.formataCPF(input("Informe o cpf do candidato: "))
@@ -25,6 +31,8 @@ def main():
 
                     #Garante que o candidato existe
                     candidato = ListasPerfil.buscaCandidato(listaCandidatos, cpf)
+
+                    #Saídas de dados
                     if candidato:
                         print()
                         print("Perfil do candidato:", candidato.profissoes)
@@ -38,6 +46,7 @@ def main():
                 else:
                     print("Cpf inválido")
 
+            #O usuário escolheu ver candidatos que encaixam com o perfil do concurso
             elif escolha == 2:
                 perfilConcurso = []
                 codigo = input("Informe o código do concurso: ")
@@ -50,11 +59,12 @@ def main():
 
                     #Garante que o concurso existe
                     concurso = ListasPerfil.buscaConcurso(listaConcursos, codigo)
+
+                    #Saídas de dados
                     if concurso:
                         print()
                         print("Perfil do concurso:", concurso.vagas)
                         print()
-
 
                     for candidato in perfilConcurso:
                         print(f"Nome: {candidato.nome}, data de nascimento: {candidato.dataNascimento}, cpf: {candidato.cpf}, lista de profissões: {candidato.profissoes}")
@@ -64,9 +74,11 @@ def main():
                 else:
                     print("Código inválido")  
 
+            #Recebe novamente a entrada do usuário, com tratamento de erros
             escolha = FuncoesAux.recebeEscolha()
 
     except Exception as e:
+        #Recebe todos os tipos de excessões
         print("Erro no código!")
         print(e)
 
