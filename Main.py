@@ -1,15 +1,15 @@
 #Importações das outras partes do código
-import LeitorArquivo
-import ListasPerfil
-import ListasBusca
-import FuncoesAux
+from Logica import LeitorArquivo
+from Logica import ListasPerfil
+from Logica import ListasBusca
+from Logica import FuncoesAux
 
 #Função principal
 def main():
     try:
         #Recebe os dados dos arquivos de texto
-        listaCandidatos = LeitorArquivo.retornaLista(r"PseudoBD\candidatos.txt")
-        listaConcursos = LeitorArquivo.retornaLista(r"PseudoBD\concursos.txt")
+        listaCandidatos = LeitorArquivo.retornaLista(r"ArquivosTexto\candidatos.txt")
+        listaConcursos = LeitorArquivo.retornaLista(r"ArquivosTexto\concursos.txt")
 
         #Garante que as listas são válidas
         if not listaCandidatos or not listaConcursos:
