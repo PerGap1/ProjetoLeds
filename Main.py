@@ -8,8 +8,8 @@ import FuncoesAux
 def main():
     try:
         #Recebe os dados dos arquivos de texto
-        listaCandidatos = LeitorArquivo.retornaLista(r"ProjetoLEDS\PseudoBD\candidatos.txt")
-        listaConcursos = LeitorArquivo.retornaLista(r"ProjetoLEDS\PseudoBD\concursos.txt")
+        listaCandidatos = LeitorArquivo.retornaLista(r"PseudoBD\candidatos.txt")
+        listaConcursos = LeitorArquivo.retornaLista(r"PseudoBD\concursos.txt")
 
         #Garante que as listas são válidas
         if not listaCandidatos or not listaConcursos:
@@ -78,10 +78,8 @@ def main():
             #Recebe novamente a entrada do usuário, com tratamento de erros
             escolha = FuncoesAux.recebeEscolha()
 
-    except Exception as e:
-        #Recebe todos os tipos de excessões
-        print("Erro no código!")
-        print(e)
+    except NameError:
+        print("Erro no arquivo de texto!")
 
 if __name__ == "__main__":
     main()

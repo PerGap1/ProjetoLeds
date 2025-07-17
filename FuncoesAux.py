@@ -5,7 +5,7 @@ def recebeEscolha():
     try:
         print()
         #Recebe a escolha do usuário
-        escolha = int(input("1-Perfil do candidato, 2-Perfil do concurso: "))
+        escolha = int(input("1-Perfil do candidato, 2-Perfil do concurso, 3-Sair: "))
 
         if escolha != 1 and escolha != 2:
             escolha = 0
