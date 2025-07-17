@@ -18,3 +18,9 @@ class Candidato:
                 profissoes[index] = profissao
 
         self.profissoes = profissoes
+
+    def mostrarDadosPuro(self):
+        print(self.nome, self.dataNascimento, self.cpf, self.profissoes)
+
+    def mostrarDados(self):
+        print(f"Nome: {self.nome}, data de nascimento: {self.dataNascimento}, cpf: {self.cpf}, lista de profissões: {self.profissoes}")

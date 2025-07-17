@@ -40,7 +40,7 @@ def main():
                         print()
 
                     for concurso in perfilCandidato:
-                        print(f"Órgão: {concurso.orgao}, edital: {concurso.edital}, codigo: {concurso.codigo}, lista de vagas: {concurso.vagas}")
+                        concurso.mostrarDados()
 
                     print(f"Quantidade de concursos: {len(perfilCandidato)}")
 
@@ -68,7 +68,7 @@ def main():
                         print()
 
                     for candidato in perfilConcurso:
-                        print(f"Nome: {candidato.nome}, data de nascimento: {candidato.dataNascimento}, cpf: {candidato.cpf}, lista de profissões: {candidato.profissoes}")
+                        candidato.mostrarDados()
 
                     print(f"Quantidade de candidatos: {len(perfilConcurso)}")
 

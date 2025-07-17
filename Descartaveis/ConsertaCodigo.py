@@ -14,9 +14,10 @@ from Logica import LeitorArquivo
 
 def main():
     listaCodigos = []
-    listaConcursos = LeitorArquivo.retornaLista(r"ArquivosTexto\concursos.txt")
+    listaConcursos = LeitorArquivo.retornaLista(r"ArquivosTexto\Backup\concursosBackup.txt")
+    #listaCandidatos = LeitorArquivo.retornaLista(r"ArquivosTexto\Backup\candidatosBackup.txt")
     cont = 0
-
+    
     for concurso in listaConcursos:
         codigo = concurso.codigo
 
@@ -39,8 +40,34 @@ def main():
     arquivoFinal = open(r"final.txt", "w", encoding='utf-8')
 
     for concurso in listaConcursos:
-        arquivoFinal.write(concurso.orgao + "," + concurso.edital + "," + concurso.codigo + "," + str(concurso.vagas))
+        vagas = concurso.vagas
+        vagasFormatado = "["
+        
+        for vaga in vagas:
+            vagasFormatado = vagasFormatado + vaga
+
+            if vagas[-1] != vaga:
+                vagasFormatado = vagasFormatado + ","
+
+        vagasFormatado = vagasFormatado + "]"
+
+        arquivoFinal.write(concurso.orgao + "," + concurso.edital + "," + concurso.codigo + "," + str(vagasFormatado))
         arquivoFinal.write('\n')
+
+    '''for candidato in listaCandidatos:
+        profissoes = candidato.profissoes
+        profissoesFormatado = "["
+        
+        for profissao in profissoes:
+            profissoesFormatado = profissoesFormatado + profissao
+
+            if profissoes[-1] != profissao:
+                profissoesFormatado = profissoesFormatado + ","
+
+        profissoesFormatado = profissoesFormatado + "]"
+
+        arquivoFinal.write(candidato.nome + "," + candidato.dataNascimento + "," + candidato.cpf + "," + str(profissoesFormatado))
+        arquivoFinal.write('\n')'''
 
     arquivoFinal.write(str(cont))
 

@@ -7,3 +7,9 @@ class Concurso:
         self.edital = edital
         self.codigo = codigo
         self.vagas = vagas
+
+    def mostrarDadosPuro(self):
+        print(self.orgao, self.edital, self.codigo, self.vagas)
+
+    def mostrarDados(self):
+        print(f"Órgão: {self.orgao}, edital: {self.edital}, codigo: {self.codigo}, lista de vagas: {self.vagas}")
