@@ -1,5 +1,5 @@
-from Candidato import Candidato
-from Concurso import Concurso
+from Objetos.Candidato import Candidato
+from Objetos.Concurso import Concurso
 
 #Processa o arquivo por linhas, jogando os dados numa lista e retornando
 def retornaLista(caminhoArquivo : str):
