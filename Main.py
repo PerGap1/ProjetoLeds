@@ -1,6 +1,7 @@
 #Importações das outras partes do código
 import LeitorArquivo
 import ListasPerfil
+import ListasBusca
 import FuncoesAux
 
 #Função principal
@@ -30,7 +31,7 @@ def main():
                     perfilCandidato = ListasPerfil.perfilCandidato(listaCandidatos, listaConcursos, cpf)
 
                     #Garante que o candidato existe
-                    candidato = ListasPerfil.buscaCandidato(listaCandidatos, cpf)
+                    candidato = ListasBusca.buscaCandidato(listaCandidatos, cpf)
 
                     #Saídas de dados
                     if candidato:
@@ -58,7 +59,7 @@ def main():
                     perfilConcurso = ListasPerfil.perfilConcurso(listaCandidatos, listaConcursos, codigo)
 
                     #Garante que o concurso existe
-                    concurso = ListasPerfil.buscaConcurso(listaConcursos, codigo)
+                    concurso = ListasBusca.buscaConcurso(listaConcursos, codigo)
 
                     #Saídas de dados
                     if concurso:
