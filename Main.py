@@ -8,8 +8,8 @@ from Logica import FuncoesAux
 def main():
     try:
         #Recebe os dados dos arquivos de texto
-        listaCandidatos = LeitorArquivo.retornaLista(r"ArquivosTexto\candidatos.txt")
-        listaConcursos = LeitorArquivo.retornaLista(r"ArquivosTexto\concursos.txt")
+        listaCandidatos = LeitorArquivo.retornaLista(r"ProjetoLEDS\ArquivosTexto\candidatos.txt")
+        listaConcursos = LeitorArquivo.retornaLista(r"ProjetoLEDS\ArquivosTexto\concursos.txt")
 
         #Garante que as listas são válidas
         if not listaCandidatos or not listaConcursos:
