@@ -29,7 +29,6 @@ def perfilCandidato(listaCandidatos : list, listaConcursos : list, cpf : str):
 # mas permite que ela não use de todas as capacidades do candidato
 def perfilConcurso(listaCandidatos : list, listaConcursos : list, codigo : str):
     listaCorrespondencias = []
-
     #Procura pelo concurso informado
     for concurso in listaConcursos:
 

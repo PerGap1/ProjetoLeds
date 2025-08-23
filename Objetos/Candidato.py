@@ -10,9 +10,7 @@ class Candidato:
         self.cpf = cpf
 
         #Tira espaços em branco
-        for index in range(len(profissoes)):
-            profissao = profissoes[index]
-
+        for index, profissao in enumerate(profissoes):
             if profissao[0] == ' ':
                 profissao = profissao[1:]
                 profissoes[index] = profissao
@@ -24,3 +22,14 @@ class Candidato:
 
     def mostrarDados(self):
         print(f"Nome: {self.nome}, data de nascimento: {self.dataNascimento}, cpf: {self.cpf}, lista de profissões: {self.profissoes}")
+
+    def mostrarProfissoes(self):
+        profissoes = str()
+
+        for profissao in self.profissoes:
+            if profissao != self.profissoes[-1]:
+                profissoes += profissao + ", "
+            else:
+                profissoes += profissao
+
+        return profissoes

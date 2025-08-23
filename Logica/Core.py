@@ -46,7 +46,6 @@ def core(escolha, identificador):
                 #Garante que o concurso existe
                 concurso = ListasBusca.buscaConcurso(listaConcursos, codigo)
 
-                print(perfilConcurso, concurso)
                 return perfilConcurso, concurso
             
             else:

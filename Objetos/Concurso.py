@@ -13,3 +13,14 @@ class Concurso:
 
     def mostrarDados(self):
         print(f"Órgão: {self.orgao}, edital: {self.edital}, codigo: {self.codigo}, lista de vagas: {self.vagas}")
+
+    def mostrarVagas(self):
+        vagas = str()
+
+        for vaga in self.vagas:
+            if vaga != self.vagas[-1]:
+                vagas += vaga + ", "
+            else:
+                vagas += vaga
+
+        return vagas
