@@ -1,0 +1,145 @@
+{% extends "Base.html" %}
+
+{% block titulo %}Home page{% endblock %}
+
+{% block conteudo %}
+    <form method="post">
+        <div>
+            <input class="form-control" style="width: 30%;" placeholder="Escolha" type="number" id="escolha" name="escolha">
+        </div>
+        <br>
+        <div>
+            <input class="form-control" style="width: 30%;" placeholder="CPF ou código" type="text" id="identificador" name="identificador">
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+
+    <br><br>
+
+    {% if concursos and candidato %}        
+        <!-- Dados do candidato -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Nascimento</th>
+                    <th scope="col">Cpf</th>
+                    <th scope="col">Profissões</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{candidato.nome}}</th>
+                    <th>{{candidato.dataNascimento}}</th>
+                    <th>{{candidato.cpf}}</th>
+                    <th>{{candidato.profissoes}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Profissões do candidato -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Profissões</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for profissao in candidato.profissoes %}
+                    <tr>
+                        <th>{{profissao}}</th>
+                    </tr>                
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Concursos encontrados -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Órgão</th>
+                    <th scope="col">Edital</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Vagas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for concurso in concursos %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{concurso.orgao}}</td>
+                        <td>{{concurso.edital}}</td>
+                        <td>{{concurso.codigo}}</td>
+                        <td>{{concurso.vagas}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% elif candidatos and concurso %}
+        <!-- Dados do concurso -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Órgão</th>
+                    <th scope="col">Edital</th>
+                    <th scope="col">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{concurso.orgao}}</th>
+                    <th>{{concurso.edital}}</th>
+                    <th>{{concurso.codigo}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Vagas do concurso -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Vagas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vaga in concurso.vagas %}
+                    <tr>
+                        <th>{{vaga}}</th>
+                    </tr>                
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Candidatos encontrados -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Nascimento</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Profissões</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for candidato in candidatos %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{candidato.nome}}</td>
+                        <td>{{candidato.dataNascimento}}</td>
+                        <td>{{candidato.cpf}}</td>
+                        <td>{{candidato.profissoes}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% elif candidato or concurso or candidatos or concursos %}
+        <p>a</p>
+    {% else %}
+        <p>Sem dados</p>
+    {% endif %}
+{% endblock %}
